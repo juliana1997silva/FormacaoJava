@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0fa768-b065-4071-8ae8-025fba301d8c" name="Changes" comment="desafio">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/desafio/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/desafio/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="6a0fa768-b065-4071-8ae8-025fba301d8c" name="Changes" comment="desafio finalizado" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +53,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Desafio",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "//wsl.localhost/Debian/home/jjesus/Java/desafio",
     "project.structure.last.edited": "Modules",
@@ -141,6 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="desafio" />
-    <option name="LAST_COMMIT_MESSAGE" value="desafio" />
+    <MESSAGE value="desafio finalizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="desafio finalizado" />
   </component>
 </project>
