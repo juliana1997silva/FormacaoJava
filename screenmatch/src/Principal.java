@@ -1,9 +1,11 @@
+import br.com.alura.screenmatch.modelos.Filme;
+
 public class Principal {
     public static void main(String[] args) {
 
         Filme meuFilme = new Filme();
-        meuFilme.nome = "Quarto de Guerra";
-        meuFilme.anoLancamento = 2015;
+        meuFilme.setNome("Quarto de Guerra");
+        meuFilme.setAnoLancamento(2015);
 
         meuFilme.exibeFichaTecnica();
 
@@ -11,9 +13,7 @@ public class Principal {
         meuFilme.avalia(5);
         meuFilme.avalia(10);
 
-        System.out.println(meuFilme.somaAvaliacao);
-        System.out.println(meuFilme.totalAvaliacao);
-
+        System.out.println("Total de Avaliações: " + meuFilme.getTotalAvaliacao());
         System.out.println(meuFilme.obterMedia());
 
 
