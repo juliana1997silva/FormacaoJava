@@ -9,9 +9,8 @@ import java.util.ArrayList;
 public class Principal {
     public static void main(String[] args) {
 
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("Quarto de Guerra");
-        meuFilme.setAnoLancamento(2015);
+        Filme meuFilme = new Filme("Quarto de Guerra", 2015);
+
         meuFilme.setDuracaoMinutos(180);
 
         meuFilme.exibeFichaTecnica();
@@ -25,9 +24,7 @@ public class Principal {
 
         System.out.println("Duração do filme: " + meuFilme.getDuracaoMinutos());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoLancamento(2010);
+        Serie lost = new Serie("Lost", 2010);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(8);
@@ -35,9 +32,7 @@ public class Principal {
 
         System.out.println("Duração da serie: " + lost.getDuracaoMinutos());
 
-        Filme outraFilme = new Filme();
-        outraFilme.setNome("Avatar");
-        outraFilme.setAnoLancamento(2023);
+        Filme outraFilme = new Filme("Avatar",2023);
         outraFilme.setDuracaoMinutos(200);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
@@ -57,9 +52,7 @@ public class Principal {
 
         filtro.filtrar(episodio);
 
-        Filme filmeJuliana = new Filme();
-        filmeJuliana.setNome("Os Corajosos");
-        filmeJuliana.setAnoLancamento(2011);
+        var filmeJuliana = new Filme("Os Corajosos", 2011);
         filmeJuliana.setDuracaoMinutos(189);
 
         ArrayList<Filme> listaFilmes = new ArrayList<>(); //cria um array do tipo Filme
@@ -69,8 +62,10 @@ public class Principal {
         System.out.println("tamanho da lista: " + listaFilmes.size());
         System.out.println("1º filme da lista: " + listaFilmes.get(0).getNome());
         System.out.println("toString do filme " + listaFilmes.get(0).toString());
+
         //array devolve um tostring de cada elemente dentro dele
         System.out.println(listaFilmes);
 
+        System.out.println();
     }
 }

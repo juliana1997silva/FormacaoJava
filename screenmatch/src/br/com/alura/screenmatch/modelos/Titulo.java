@@ -8,6 +8,13 @@ public class Titulo {
     private double somaAvaliacao;
     private int totalAvaliacao;
 
+    //contrutor
+
+
+    public Titulo(String nome, int anoLancamento) {
+        this.nome = nome;
+        this.anoLancamento = anoLancamento;
+    }
 
     public int getTotalAvaliacao(){
         return totalAvaliacao;
