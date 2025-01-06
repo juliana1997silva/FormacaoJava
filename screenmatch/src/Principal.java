@@ -4,6 +4,8 @@ import br.com.alura.screenmatch.modelos.Episodios;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
 
@@ -54,6 +56,21 @@ public class Principal {
         episodio.setTotalVisualizacao(300);
 
         filtro.filtrar(episodio);
+
+        Filme filmeJuliana = new Filme();
+        filmeJuliana.setNome("Os Corajosos");
+        filmeJuliana.setAnoLancamento(2011);
+        filmeJuliana.setDuracaoMinutos(189);
+
+        ArrayList<Filme> listaFilmes = new ArrayList<>(); //cria um array do tipo Filme
+        listaFilmes.add(filmeJuliana);
+        listaFilmes.add(meuFilme);
+        listaFilmes.add(outraFilme);
+        System.out.println("tamanho da lista: " + listaFilmes.size());
+        System.out.println("1º filme da lista: " + listaFilmes.get(0).getNome());
+        System.out.println("toString do filme " + listaFilmes.get(0).toString());
+        //array devolve um tostring de cada elemente dentro dele
+        System.out.println(listaFilmes);
 
     }
 }
