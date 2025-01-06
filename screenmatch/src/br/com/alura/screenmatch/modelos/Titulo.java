@@ -9,8 +9,6 @@ public class Titulo {
     private int totalAvaliacao;
 
     //contrutor
-
-
     public Titulo(String nome, int anoLancamento) {
         this.nome = nome;
         this.anoLancamento = anoLancamento;
