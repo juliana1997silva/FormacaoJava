@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculo.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculo.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodios;
@@ -59,13 +61,12 @@ public class Principal {
         listaFilmes.add(filmeJuliana);
         listaFilmes.add(meuFilme);
         listaFilmes.add(outraFilme);
+
         System.out.println("tamanho da lista: " + listaFilmes.size());
         System.out.println("1º filme da lista: " + listaFilmes.get(0).getNome());
         System.out.println("toString do filme " + listaFilmes.get(0).toString());
 
         //array devolve um tostring de cada elemente dentro dele
         System.out.println(listaFilmes);
-
-        System.out.println();
     }
 }
