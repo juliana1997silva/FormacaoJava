@@ -42,7 +42,7 @@ public class Principal {
 
         temporadaList.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
 
-        //exemplo de stream
+        //EXEMPLO
 //        Operação Intermediaria => Gera um novo fluxo de dados e que podemos fazer uma nova operação
 //        Operação Final => São aquelas que finaliza aquela stream
 
@@ -59,11 +59,16 @@ public class Principal {
                 .collect(Collectors.toList()); // consigo adicionar coisas novas nessa lista
                 //.toList(); //não consigo adicionar nenhum item dentro dessa lista
 
-        System.out.println("\n Top 5 Episodios:");
+        System.out.println("\n Top 10 Episodios:");
         dadosEpisodios.stream()
                 .filter(e -> !e.avaliacao().equalsIgnoreCase("N/A"))
+               // .peek(e -> System.out.println("Primeiro Filtro " + e))
                 .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed()) //ordenar pela avaliação e do maior para o menor
-                .limit(5) // pegar somente os 5 primeiros
+                //.peek(e -> System.out.println("Ordenação " + e))
+                .limit(10) // pegar somente os 5 primeiros
+                //.peek(e -> System.out.println("Limite " + e))
+                .map(e -> e.titulo().toUpperCase())
+                //.peek(e -> System.out.println("Mapeamento " + e))
                 .forEach(System.out::println);
 
         List<Episodio> episodios = temporadaList.stream()
@@ -73,18 +78,49 @@ public class Principal {
 
         episodios.forEach(System.out::println);
 
-        System.out.println("A partir de que ano você deseja ver os episodios ?");
-        var ano = leitura.nextInt();
-        leitura.nextLine();
+//        System.out.println("A partir de que ano você deseja ver os episodios ?");
+//        var ano = leitura.nextInt();
+//        leitura.nextLine();
+//
+//        LocalDate dataBusca = LocalDate.of(ano, 1 , 1);
+//        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        episodios.stream()
+//                .filter(e -> e.getDataLancamento() != null &&  e.getDataLancamento().isAfter(dataBusca))
+//                .forEach(e -> System.out.println(
+//                        "Temporada: " + e.getTemporada() + " " +
+//                                "Episodio: " + e.getTitulo() + " " +
+//                                "Data de Lançamento: " + e.getDataLancamento().format(formatador)
+//                ));
 
-        LocalDate dataBusca = LocalDate.of(ano, 1 , 1);
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        episodios.stream()
-                .filter(e -> e.getDataLancamento() != null &&  e.getDataLancamento().isAfter(dataBusca))
-                .forEach(e -> System.out.println(
-                        "Temporada: " + e.getTemporada() + " " +
-                                "Episodio: " + e.getTitulo() + " " +
-                                "Data de Lançamento: " + e.getDataLancamento().format(formatador)
-                ));
+//        System.out.println("\nDigite o trecho do titulo: ");
+//        var trechoTitulo = leitura.nextLine();
+//        Optional<Episodio> episodioEncontrado = episodios.stream()
+//                .filter(e -> e.getTitulo().toUpperCase().contains(trechoTitulo.toUpperCase()))
+//                .findFirst();
+//
+//        if(episodioEncontrado.isPresent()){
+//            System.out.println("Episodio encontrado:");
+//            System.out.println("Temporada: " + episodioEncontrado.get().getTemporada());
+//        }else {
+//            System.out.println("Episodio não encontrado");
+//        }
+
+        Map<Integer, Double> avaliacoes = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
+                .collect(Collectors.groupingBy(Episodio::getTemporada,
+                        Collectors.averagingDouble(Episodio::getAvaliacao)));
+
+        System.out.println(avaliacoes);
+
+//        DoubleSummaryStatistics::: já vem a soma de todas as avaliações, a menor e maior avaliação, a media e a quantidade de avaliações contadas
+
+        DoubleSummaryStatistics est = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
+                .collect(Collectors.summarizingDouble(Episodio::getAvaliacao));
+
+        System.out.println("\nMedia: " + est.getAverage());
+        System.out.println("\nNota Minima: " + est.getMin());
+        System.out.println("\nNota Maxima: " + est.getMax());
+        System.out.println("\nQuantidade: " + est.getCount());
     }
 }
